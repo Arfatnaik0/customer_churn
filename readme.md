@@ -9,6 +9,7 @@ This project predicts whether a telecom customer is likely to churn using machin
 The dataset contains customer demographics, service usage, billing information, and a churn indicator.
 
 ## Project Structure
+```
 Customer-Churn/
 │
 ├── notebook/
@@ -25,6 +26,7 @@ Customer-Churn/
 │
 ├── README.md
 └── requirements.txt
+```
 
 
 ## Plots
