@@ -24,6 +24,9 @@ customer_churn/
 │
 ├── notebook/
 │ └── churn_eda_modeling.ipynb
+|
+├── plots/
+│ └── *seaborn plots*
 │
 ├── model/
 │ ├── churn_model.pkl
@@ -36,6 +39,11 @@ customer_churn/
 ├── README.md
 └── requirements.txt
 ```
+---
+
+## Plots
+![alt text](plots/Corr_matrix.png)
+![alt text](plots/Most_imp_features.png)
 
 ---
 

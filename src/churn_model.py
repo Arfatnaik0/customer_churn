@@ -2,6 +2,13 @@
 import numpy as np
 import pandas as pd
 
+# import ml libraries
+from sklearn.preprocessing import StandardScaler,OneHotEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+import joblib
+
 # load dataset
 churn = pd.read_csv('..\\data\\WA_Fn-UseC_-Telco-Customer-Churn.csv')
 
@@ -17,16 +24,6 @@ cols = ['MultipleLines', 'OnlineSecurity', 'OnlineBackup',
 
 for col in cols:
     churn[col] = churn[col].replace(replace_dict)
-
-
-# import ml libraries
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler,OneHotEncoder
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report,confusion_matrix,roc_auc_score
-from sklearn.compose import ColumnTransformer
-from sklearn.pipeline import Pipeline
-import joblib
 
 
 # x and y split
@@ -59,18 +56,8 @@ model=Pipeline(steps=[
     ('classifier', LogisticRegression(class_weight='balanced'))
 ])
 
-# train test split
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=42,stratify=y)
-
 # fit the model
-model.fit(x_train,y_train)
-y_prob=model.predict_proba(x_test)[:,1]
-y_pred=(y_prob>0.4).astype(int)
-
-# metrics
-print(classification_report(y_test,y_pred))
-print(confusion_matrix(y_test,y_pred))
-print(f'ROC-AUC score:{roc_auc_score(y_test,y_prob)}')
+model.fit(x,y)
 
 # save the model
 joblib.dump(model,'..\\model\\churn_model.pkl')
