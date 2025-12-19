@@ -42,7 +42,9 @@ customer_churn/
 ---
 
 ## Plots
+corr matrix plot:
 ![alt text](plots/Corr_matrix.png)
+most important features RFC:
 ![alt text](plots/Most_imp_features.png)
 
 ---
