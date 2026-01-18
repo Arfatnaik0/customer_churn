@@ -5,6 +5,7 @@ This project predicts whether a telecom customer is likely to churn using machin
 It uses a complete preprocessing and modeling pipeline so that raw customer data can be directly used for predictions.
 
 The goal is to identify churn customers early so that retention actions can be taken.
+![alt text](image-1.png)
 
 ---
 
